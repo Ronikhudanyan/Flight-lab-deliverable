@@ -3,6 +3,9 @@ const dbConfig = require('./config/db.config')
 
 const db = require("./models");
 const Airport = db.airport;
+const Flight = db.flight
+const Passenger = db.passenger
+const Terminal = db.terminal
 
 // db connection
 db.mongoose
@@ -18,12 +21,44 @@ db.mongoose
     process.exit();
   });
 
-const airport = new Airport({
-	name: "First Airport",
-	country: "US",
-	opened: "2020-12-15"
+//   AIRPORTS
+// const airport = new Airport({
+// 	name: "CDG",
+// 	country: "France",
+// 	opened: "2020-12-15"
+// })
+
+// airport.save()
+// console.log("Airport saved", airport)
+
+
+//TERMINAL
+const terminal = new Terminal({
+	name: "Terminal 1",
+  flights: [flight1, flight2],
+  capacity: 23432424,
 })
 
-airport.save()
-console.log("Airport saved", airport)
-// Lets Make and Save our first airport
+// terminal.save()
+// console.log("Terminal saved", terminal)
+
+//FLIGHT
+// const flight = new Flight({
+//   from: "Heathrow",
+//   to: "JFK",
+//   airline: "British Airways",
+//   name: "flight2"
+// })
+
+// flight.save()
+// console.log("Flight saved", flight)
+
+// //PASSENGER
+// const passenger = new Passenger({
+//   firstName: String,
+//   lastName: String,
+//   dob: Date
+// })
+
+// passenger.save()
+// console.log("Passenger saved", passenger)
